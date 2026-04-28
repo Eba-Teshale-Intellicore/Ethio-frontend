@@ -1,0 +1,281 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    font-family: 'Arial', sans-serif;
+}
+
+.zoom-scroll{
+    height: 400vh;
+    width: 100%;
+    view-timeline-name: --zoom-scroll;  /* ✅ Define the timeline name */
+    view-timeline-axis: block;
+    position: relative;
+}
+
+.welcome{
+    position: sticky;
+    top: 50%;
+    color: #fff;
+    text-shadow: 0 0 10px #42adf4;
+    font-size: 4em;
+    text-align: center;
+    z-index: 1;
+    animation: fade-out both;
+    animation-timeline: --zoom-scroll;
+    animation-range: 30% 50%;
+}
+
+@keyframes fade-out {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+.zoom-scroll-image{
+    width: 100vw;
+    height: 100vh;
+    background-image: url(/images/adwamoun.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    animation: zoom-scroll both;
+    animation-timeline: --zoom-scroll;
+    animation-range: 0 100%;
+    position: sticky;
+    top: 0;
+}
+
+@keyframes zoom-scroll {
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1);
+        border-radius: 0;
+    }
+    70%{
+        transform: scale(0.4);
+        border-radius: 120px;
+    }
+    100%{
+        transform: scale(0.4) translateX(-500%);
+        border-radius: 120px;
+    }
+}
+
+
+
+/* ====================================================================== */
+
+.image-parallax-container{
+    position: relative;
+    height: 50vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    view-timeline-name: --image-section;
+    view-timeline-axis: block;
+}
+
+.image-bg{
+    position: absolute;
+    inset: 0;
+    background-image: url(/images/adwamoun.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center 0;
+    animation: image-parallx linear both;
+    animation-timeline: --image-section;
+}
+.image-parallax-container h2{
+    text-align: center;
+    display: flex;
+    gap: 10px;
+    font-size: 4rem;
+    text-shadow: 0 0 10px #fff;
+}
+.image-parallax-container h2 span {
+    animation: text-parallax both;
+    animation-timeline: --image-section;
+    animation-range: contain cover;
+}
+
+@keyframes image-parallx {
+    from{
+        background-position: center 100%;
+    }
+    to{
+        background-position: center 0;
+    }
+}
+
+
+.pattern-parallax-container{
+    position: relative;
+    height: 50vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    view-transition-name: --pattern-section;
+    view-timeline-axis: block;
+}
+
+.pattern-bg-small{
+    position: absolute;
+   left: 0;
+   top: -100%;
+   height: 400%;
+   width: 100%;
+   background-image: url(/images/adwamoun.jpg);
+   /* background-size: cover; */
+   background-repeat: no-repeat;
+   /* background-position: center 0; */
+   animation: small-pattern-parallax linear both;
+   animation-timeline: --pattern-section;
+   animation-range: cover;
+}
+
+@keyframes small-pattern-parallax {
+    0%{
+        opacity: 0;
+        transform: translateY(20%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(-20%);
+    }
+}
+
+.pattern-bg-large{
+    position: absolute;
+    left: 0;
+    top: -100%;
+    height: 400%;
+    width: 100%;
+    background-image: url(/images/adwamoun.jpg);
+    /* background-size: cover; */
+    background-repeat: no-repeat;
+    /* background-position: center 0; */
+    animation: big-pattern-parallax linear both;
+    animation-timeline: --pattern-section;
+    animation-range: cover;
+}
+
+
+@keyframes big-pattern-parallax {
+    0%{
+        opacity: 0;
+        transform: translateY(40%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(-40%);
+    }
+}
+
+.pattern-parallax-container h2{
+    text-align: center;
+    display: flex;
+    gap: 10px;
+    font-size: 4rem;
+    text-shadow: 0 0 10px #fff;
+
+    span{
+        animation: pattern-parallax both;
+        animation-timeline: --pattern-section;
+        animation-range: contain cover;
+    }
+}
+
+@keyframes pattern-parallax {
+    0%{
+        transform: translateX(calc(var(--i) + 10%));
+        opacity: 0;
+    }
+    50%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+.progress-parallax-container{
+    position: relative;
+    height: 50vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    view-transition-name: --progress-section;
+    view-timeline-axis: block;
+}
+
+.progress-container-fill{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background-image: linear-gradient(to bottom right, #ff5, #b15d0a);
+    animation: progress-overlay-animation both;
+    animation-timeline: --progress-section;
+    animation-range: contain 0 contain 60%;
+}
+
+@keyframes progress-overlay-animation {
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 100%;
+    }
+} 
+
+.progress-bar {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    height: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.progress-bar-fill{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: #fff;
+    animation: progress-bar-animation both;
+    animation-timeline: --progress-section;
+    animation-range: contain 30% contain 60%;
+}
+
+@keyframes progress-bar-animation {
+    0%{
+        width: 100%;
+    }
+    100%{
+        width: 0;
+    }
+}
+
+@keyframes text-parallax {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

@@ -1,0 +1,185 @@
+.container {
+  width: 100%;
+  // min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  // height: 500vh;
+  background: #0a192f;
+}
+
+/* ===== TIMELINE SECTION ===== */
+.timeline {
+  padding: 90px 20px;
+  color: white;
+  background: #0a192f;
+  position: sticky;
+  top: 0;
+}
+
+/* ===== TITLE ===== */
+.title {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 70px;
+  letter-spacing: 1px;
+  color: #ffffff;
+
+  span {
+    color: #d4af37; // gold accent
+  }
+}
+
+/* ===== TIMELINE WRAPPER ===== */
+.timelineContainer {
+  position: relative;
+  margin: auto;
+  border: 1px solid #d4af37;
+}
+
+/* CENTER LINE */
+.timelineContainer::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  background: orange;
+  top: 1px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 100px;
+}
+
+/* ===== ITEM ===== */
+.timelineItem {
+  width: 50%;
+  padding: 25px 40px;
+  position: relative;
+  margin: 40px 0;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid green;
+}
+
+/* ===== CARD CONTENT ===== */
+.content {
+  background: #112240;
+  padding: 20px;
+  border-radius: 14px;
+  transition: all 0.4s ease;
+  // box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    transform: translateY(-18px) scale(1.02);
+  }
+
+  h2 {
+    margin-top: 12px;
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+
+  p {
+    margin-top: 8px;
+    font-size: 0.95rem;
+    opacity: 0.8;
+    line-height: 1.6;
+  }
+  /* IMAGE (Next.js Image fix) */
+  // img {
+  //   width: 100%;
+  //   height: auto;
+  //   border-radius: 10px;
+  //   object-fit: cover;
+  // }
+
+  // /* DATE */
+  // .date {
+  //   display: inline-block;
+  //   margin-top: 6px;
+  //   color: #d4af37;
+  //   font-size: 0.9rem;
+  // }
+}
+
+/* IMAGE (Next.js Image fix) */
+.content :global(img) {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* DATE */
+.date {
+  display: inline-block;
+  margin-top: 6px;
+  color: #d4af37;
+  font-size: 0.9rem;
+}
+
+/* ===== LEFT SIDE ===== */
+.left {
+  left: 0;
+
+  &::before {
+    content: "";
+    position: absolute;
+    right: -10px;
+    top: 28px;
+    width: 16px;
+    height: 16px;
+    background: #d4af37;
+    border-radius: 50%;
+    transition: 0.3s ease;
+  }
+}
+
+/* ===== RIGHT SIDE ===== */
+.right {
+  left: 50%;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 28px;
+    width: 16px;
+    height: 16px;
+    background: #d4af37;
+    border-radius: 50%;
+    transition: 0.3s ease;
+  }
+}
+
+/* DOT HOVER EFFECT */
+.timelineItem:hover::before {
+  transform: scale(1.4);
+  background: white;
+}
+
+
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .timelineContainer::after {
+    left: 20px;
+  }
+
+  .timelineItem {
+    width: 100%;
+    padding-left: 60px;
+    padding-right: 20px;
+  }
+
+  .left,
+  .right {
+    left: 0;
+  }
+
+  .left::before,
+  .right::before {
+    left: 10px;
+  }
+}
+

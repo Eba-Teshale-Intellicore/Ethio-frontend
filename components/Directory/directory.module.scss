@@ -1,0 +1,204 @@
+.container{
+  padding: 4rem 2rem;
+
+}
+.header {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: 
+  "hero hero navv";
+  gap: 1rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid #fff8f8;
+  border-radius: 1rem;
+}
+
+.nav{
+    grid-area: navv;
+    ul{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin: -50px 0;
+    top: 0;
+    padding: 0 1rem;
+ 
+    }
+    li {
+        list-style: none;
+        cursor: pointer;
+
+        a {
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 700;
+            &:hover {
+            font-size: 32px;
+                }
+            }
+        }
+
+}
+
+.hero {
+  display: flex;
+  grid-area: hero;
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 90%;
+
+.text  {
+    h1{
+  font-size: 5rem;
+}
+    p{
+  opacity: 0.7;
+  width: 600px;  
+}
+}
+}
+}
+
+.searchbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #ada9a9;
+  padding: 0.5rem 2rem;
+  border-radius: 10px;
+//   border: 1px solid #333;
+}
+
+.searchbox input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: white;
+  outline: none;
+}
+
+.selection {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  cursor: pointer;
+  border: 1px solid #333;
+  padding: 0.3rem 1rem;
+  border-radius: 10px;
+}
+
+.dropdown ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #ffffff;
+  padding: 0.3rem 1rem;
+  border-radius: 10px;
+  display: none;
+  z-index: -5px;
+}
+
+.dropdown:hover ul {
+  display: block;
+}
+
+.dropdown li {
+  padding: 0.3rem 1rem;
+  cursor: pointer;
+}
+
+.dropdown li:hover {
+  background: #e2cbcb;
+}
+
+.refine {
+  color: white;
+  background: black;
+  padding: 0.5rem 2rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.main {
+  margin-top: 4rem;
+}
+
+/* 🔥 GRID SYSTEM */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); // flexible system
+  gap: 2rem;
+}
+
+/* 🔥 CARD BASE */
+.cardItem {
+  position: relative;
+  height: 400px;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.4s ease;
+}
+
+/* 🔥 IMAGE */
+.image {
+  object-fit: cover;
+}
+
+/* 🔥 OVERLAY (TEXT) */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  color: white;
+  transition: 0.4s;
+}
+
+/* 🔥 HOVER EFFECT */
+.cardItem:hover {
+  transform: scale(1.03);
+}
+
+.cardItem:hover .overlay {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
+}
+
+/* 🔥 FIRST ROW (SPECIAL LAYOUT) */
+.cardItem:nth-child(1) {
+  grid-column: span 4; // BIG
+  grid-row: span 1;    // optional → makes it taller 🔥
+}
+
+.cardItem:nth-child(2) {
+  grid-column: span 2; // SMALL
+}
+
+/* 🔥 باقي CARDS (ROW 2 AND ABOVE) */
+.cardItem:nth-child(n + 3) {
+  grid-column: span 2; // 3 per row
+}
+
+/* 🔥 TEXT STYLE */
+.overlay h1 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.overlay p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}

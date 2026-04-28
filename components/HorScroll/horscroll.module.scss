@@ -1,0 +1,33 @@
+.container {
+  height: 500vh;
+  background: #111;
+  width: 1200px;
+}
+
+.contentContainer {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.images {
+  display: flex;
+  gap: 3vw;
+  padding: 0 4rem;
+}
+
+.imagesItems {
+  position: relative;
+  min-width: 300px;
+  height: 400px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+}
