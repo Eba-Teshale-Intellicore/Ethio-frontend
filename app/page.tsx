@@ -35,7 +35,7 @@ export default function Home() {
     <main ref={container} className="min-h-screen">
       <Zoom />
       <Lhero scrollYProgress = {scrollYProgress} />
-      <Timeline scrollYProgres = {scrollYProgress}/>
+      <Timeline scrollYProgress = {scrollYProgress}/>
       <HorScroll />
       <Footer/>
     </main>
