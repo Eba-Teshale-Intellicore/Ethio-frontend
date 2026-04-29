@@ -75,7 +75,7 @@ export default function Index() {
                 style={{ borderRadius }}
               >
                 <Image
-                  src={hero.hero_image}
+                  src={`https://ethio-heroes.onrender.com/static/${hero.hero_image}`}
                   fill
                   alt={hero.name}
                   className={styles.image}
