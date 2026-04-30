@@ -145,7 +145,7 @@
 /* 🔥 CARD BASE */
 .cardItem {
   // position: relative;
-  height: 400px;
+  // height: 400px;
   border-radius: 20px;
   overflow: hidden;
   cursor: pointer;
@@ -157,6 +157,9 @@
 .imageWrapper {
   position: absolute;
   inset: 0;
+  height: 400px;
+  width: 400px;
+  border: 1px solid red;
 }
 /* 🔥 IMAGE */
 .image {
@@ -168,6 +171,7 @@
   position: absolute;
   // bottom: 0;
   // left: 0;
+  height: 400px;
   width: 100%;
   // padding: 1.5rem;
   // background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
