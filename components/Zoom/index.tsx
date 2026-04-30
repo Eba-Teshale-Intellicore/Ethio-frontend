@@ -4,6 +4,7 @@ import Image from "next/image";
 import styles from "./zoom.module.scss";
 import { useScroll, useTransform, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import blur from "@/public/assets/blur.jpg"
 
 type Hero = {
   id: number;
@@ -79,7 +80,8 @@ export default function Index() {
                   fill
                   alt={hero.name}
                   className={styles.image}
-                  sizes="(max-width: 768px) 100vw, 33vw"
+                  placeholder="blur"
+                  blurDataURL={blur.src}
                 />
               </motion.div>
             </motion.div>
