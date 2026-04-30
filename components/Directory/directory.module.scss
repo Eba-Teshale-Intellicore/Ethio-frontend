@@ -152,16 +152,16 @@
   transition: 0.4s ease;
   display: grid;
   grid-template-columns: 1fr 1fr; // 2 columns for image and text
-  
+
 }
-// .imageWrapper {
-//   position: absolute;
-//   inset: 0;
-// }
-// /* 🔥 IMAGE */
-// .image {
-//   object-fit: cover;
-// }
+.imageWrapper {
+  position: absolute;
+  inset: 0;
+}
+/* 🔥 IMAGE */
+.image {
+  object-fit: cover;
+}
 
 // /* 🔥 OVERLAY (TEXT) */
 // .overlay {
