@@ -181,6 +181,7 @@
 .cardItem:nth-child(1) {
   grid-column: span 4; // BIG
   grid-row: span 1;    // optional → makes it taller 🔥
+  display: flex;
 }
 
 .cardItem:nth-child(2) {
