@@ -46,6 +46,7 @@ export default function Index() {
   const scales = [scale4, scale5, scale6, scale5, scale6, scale8, scale9];
 
   const [heroes, setHeroes] = useState<Hero[]>([]);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     fetch("https://ethio-heroes.onrender.com/api/heroes")
@@ -75,13 +76,13 @@ export default function Index() {
                 className={styles.imagecontainer}
                 style={{ borderRadius }}
               >
+                {!loaded && <div className={styles.skeleton} />}
                 <Image
                   src={`https://ethio-heroes.onrender.com/static/${hero.hero_image}`}
                   fill
                   alt={hero.name}
                   className={styles.image}
-                  placeholder="blur"
-                  blurDataURL={blur.src}
+                  onLoadingComplete={() => setLoaded(true)}
                 />
               </motion.div>
             </motion.div>
