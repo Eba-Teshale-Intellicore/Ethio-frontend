@@ -73,7 +73,7 @@ export default function Index() {
               style={{ scale, opacity: imageOpacity, y }}
               className={styles.el}
             >
-              <motion.div className={styles.imagecontainer} style={{ borderRadius }}>
+              <motion.div className={styles.imagecontainer} >
 
                 {/* LOADING SKELETON */}
                 {imageStatus[hero.id] !== "loaded" && imageStatus[hero.id] !== "error" && (
