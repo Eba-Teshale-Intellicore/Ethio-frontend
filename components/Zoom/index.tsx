@@ -47,6 +47,7 @@ export default function Index() {
 
   const [heroes, setHeroes] = useState<Hero[]>([]);
   const [loadedImages, setLoadedImages] = useState<Record<number, boolean>>({});
+  const [imageStatus, setImageStatus] = useState<Record<number, "loading" | "loaded" | "error">>({});
 
   useEffect(() => {
     fetch("https://ethio-heroes.onrender.com/api/heroes")
@@ -73,24 +74,41 @@ export default function Index() {
               className={styles.el}
             >
               <motion.div className={styles.imagecontainer} style={{ borderRadius }}>
-  
-                  {!loadedImages[hero.id] && (
-                    <div className={styles.skeleton} />
-                  )}
 
-                  <Image
-                    src={`https://ethio-heroes.onrender.com/static/${hero.hero_image}`}
-                    fill
-                    alt={hero.name}
-                    className={styles.image}
-                    onLoadingComplete={() =>
-                      setLoadedImages((prev) => ({
-                        ...prev,
-                        [hero.id]: true,
-                      }))
-                    }
-                  />
-                </motion.div>
+                {/* LOADING SKELETON */}
+                {imageStatus[hero.id] !== "loaded" && imageStatus[hero.id] !== "error" && (
+                  <div className={styles.skeleton} />
+                )}
+
+                {/* ERROR PLACEHOLDER */}
+                {imageStatus[hero.id] === "error" && (
+                  <div className={styles.placeholder}>
+                    <span>No Image</span>
+                  </div>
+                )}
+
+                <Image
+                  src={`https://ethio-heroes.onrender.com/static/${hero.hero_image}`}
+                  fill
+                  alt={hero.name}
+                  className={styles.image}
+
+                  onLoad={() =>
+                    setImageStatus((prev) => ({
+                      ...prev,
+                      [hero.id]: "loaded",
+                    }))
+                  }
+
+                  onError={() =>
+                    setImageStatus((prev) => ({
+                      ...prev,
+                      [hero.id]: "error",
+                    }))
+                  }
+                />
+
+              </motion.div>
             </motion.div>
           );
         })}
