@@ -1,5 +1,5 @@
 "use client";
-import styles from "./not-found.module.scss";
+import styles from "./custom.module.scss";
 
 export default function NotFound() {
   return (
