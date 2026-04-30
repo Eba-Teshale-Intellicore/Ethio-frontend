@@ -150,10 +150,7 @@
   overflow: hidden;
   cursor: pointer;
   transition: 0.4s ease;
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
-  // justify-content: center;
+  
 }
 .imageWrapper {
   position: absolute;
@@ -189,17 +186,20 @@
 .cardItem:nth-child(1) {
   grid-column: span 4; // BIG
   grid-row: span 1;    // optional → makes it taller 🔥
+  display: flex;
   flex-direction: row;
 }
 
 .cardItem:nth-child(2) {
   grid-column: span 2; // SMALL
+  display: flex;
   flex-direction: column;
 }
 
 /* 🔥 باقي CARDS (ROW 2 AND ABOVE) */
 .cardItem:nth-child(n + 3) {
   grid-column: span 2; // 3 per row
+  display: flex;
   flex-direction: column;
 }
 
