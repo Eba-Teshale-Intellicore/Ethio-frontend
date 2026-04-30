@@ -21,6 +21,7 @@
     flex-direction: column;
     align-items: end;
     margin: -50px 0;
+    position: absolute;
     top: 0;
     padding: 0 1rem;
  
@@ -107,7 +108,7 @@
   padding: 0.3rem 1rem;
   border-radius: 10px;
   display: none;
-  z-index: -5px;
+  z-index: -5;
 }
 
 .dropdown:hover ul {
@@ -149,12 +150,15 @@
   overflow: hidden;
   cursor: pointer;
   transition: 0.4s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  // justify-content: center;
 }
-
+.imageWrapper {
+  position: absolute;
+  inset: 0;
+}
 /* 🔥 IMAGE */
 .image {
   object-fit: cover;

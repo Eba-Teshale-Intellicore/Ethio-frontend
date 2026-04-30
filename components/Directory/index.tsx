@@ -80,6 +80,7 @@ export default function Directory() {
         <div className={styles.cards}>
             {images.map((pic, index) => (
             <div key={index} className={styles.cardItem}>
+              <div className={styles.imageWrapper}>
                 <Image
                 src={pic}
                 fill
@@ -87,6 +88,7 @@ export default function Directory() {
                 placeholder="blur"
                 className={styles.image}
                 />
+                </div>
                 <div className={styles.overlay}>
                 <h1>Eba Teshale</h1>
                 <p>Some Explanation</p>
