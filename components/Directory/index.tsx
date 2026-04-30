@@ -3,11 +3,11 @@
 import { Car, ChevronsDown, Search } from "lucide-react";
 import styles from "./directory.module.scss";
 import Image from "next/image";
-import pic1 from "@/public/assets/fasi.jpg"
-import pic2 from "@/public/assets/niga.jpg"
-import pic3 from "@/public/assets/image.jpg"
-import pic4 from "@/public/assets/image.jpg"
-import pic5 from "@/public/assets/beynoua.jpg"
+import pic1 from "@/public/assets/fasil.jpg"
+import pic2 from "@/public/assets/nigat.jpg"
+import pic3 from "@/public/assets/image1.jpg"
+import pic4 from "@/public/assets/image2.jpg"
+import pic5 from "@/public/assets/beynouna.jpg"
 
 
 export default function Directory() {
