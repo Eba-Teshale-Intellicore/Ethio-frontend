@@ -39,6 +39,12 @@
     width: 25vw;
     height: 25vh;
     position: relative;
+    background: linear-gradient(
+    90deg,
+    #1a1a1a 25%,
+    #2a2a2a 50%,
+    #1a1a1a 75%
+  );
     
     img{
       object-fit: cover;

@@ -74,24 +74,23 @@ export default function Index() {
             >
               <motion.div className={styles.imagecontainer} style={{ borderRadius }}>
   
-                    {!loadedImages[hero.id] && (
-                      <div className={styles.skeleton} />
-                    )}
+                  {!loadedImages[hero.id] && (
+                    <div className={styles.skeleton} />
+                  )}
 
-                    <Image
-                      src={`https://ethio-heroes.onrender.com/static/${hero.hero_image}`}
-                      fill
-                      alt={hero.name}
-                      className={styles.image}
-                      onLoadingComplete={() =>
-                        setLoadedImages((prev) => ({
-                          ...prev,
-                          [hero.id]: true,
-                        }))
-                      }
-                      priority={index === 0}
-                    />
-                  </motion.div>
+                  <Image
+                    src={`https://ethio-heroes.onrender.com/static/${hero.hero_image}`}
+                    fill
+                    alt={hero.name}
+                    className={styles.image}
+                    onLoadingComplete={() =>
+                      setLoadedImages((prev) => ({
+                        ...prev,
+                        [hero.id]: true,
+                      }))
+                    }
+                  />
+                </motion.div>
             </motion.div>
           );
         })}
