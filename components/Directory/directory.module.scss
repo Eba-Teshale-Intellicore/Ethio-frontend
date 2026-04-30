@@ -164,21 +164,21 @@
 }
 
 // /* 🔥 OVERLAY (TEXT) */
-// .overlay {
-//   position: absolute;
-//   bottom: 0;
-//   left: 0;
-//   width: 100%;
-//   padding: 1.5rem;
-//   background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-//   color: white;
-//   transition: 0.4s;
-// }
+.overlay {
+  position: absolute;
+  // bottom: 0;
+  // left: 0;
+  width: 100%;
+  // padding: 1.5rem;
+  // background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  color: rgb(255, 78, 78);
+  transition: 0.4s;
+}
 
 // /* 🔥 HOVER EFFECT */
-// .cardItem:hover {
-//   transform: scale(1.03);
-// }
+.cardItem:hover {
+  transform: scale(1.03);
+}
 
 // .cardItem:hover .overlay {
 //   background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
