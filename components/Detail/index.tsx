@@ -438,23 +438,13 @@ export default function Detail() {
     if (!slug) return;
 
     const fetchHero = async () => {
-      try {
         const res = await fetch(
           `https://ethio-heroes.onrender.com/api/hero/${slug}`
         );
-
-        if (!res.ok) throw new Error("API failed");
-
         const data = await res.json();
-
         setHero(data.hero);
         setRelatedHeroes(data.related_heroes || []);
-      } catch (err) {
-        console.error("API error:", err);
-      }
     };
-
-    fetchHero();
   }, [slug]);
 
   // ─── LOADING ───────────────────────────────────────────────────────
