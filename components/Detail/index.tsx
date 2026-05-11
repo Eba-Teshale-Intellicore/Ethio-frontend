@@ -459,7 +459,7 @@ export default function Detail() {
 
   // ─── LOADING ───────────────────────────────────────────────────────
 
-  if (!hero) return <Loading />;
+  if (!hero) return <p>Loading....</p> ;
 
   // ─── RENDER ────────────────────────────────────────────────────────
 
