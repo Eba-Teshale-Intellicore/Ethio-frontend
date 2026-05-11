@@ -48,9 +48,10 @@ const NAV_LINKS = [
 type RelatedHero = {
   id: number;
   name: string;
+  slug: string;
   hero_image: string;
-  era_name: string;
   short_description: string;
+  era_name: string;
 };
 
 function RelatedCard({ hero, index }: { hero: RelatedHero; index: number }) {
@@ -97,11 +98,12 @@ function RelatedCard({ hero, index }: { hero: RelatedHero; index: number }) {
           transition={{ duration: 0.2 }}
         >
           <Link
-            href={`/detail/hero/${hero.id}`}
+            href={`/detail/hero/${hero.slug}`}
             className={styles.relatedLink}
           >
             View profile <MoveRight size={12} />
           </Link>
+            <Plus size={14} />
         </motion.div>
       </div>
 
@@ -120,19 +122,20 @@ export default function Detail() {
   const [navOpen, setNavOpen] = useState(false);
   const [comment, setComment] = useState("");
   const params = useParams();
-  const id = params.id;
+  const slug = params.slug;
+
 
   const [hero, setHero] = useState<any>(null);
   const [relatedHeroes, setRelatedHeroes] = useState<RelatedHero[]>([]);
 
   useEffect(() => {
-    fetch(`https://ethio-heroes.onrender.com/api/hero/${id}`)
+    fetch(`https://ethio-heroes.onrender.com/api/hero/${slug}`)
       .then((res) => res.json())
       .then((data) => {
         setHero(data);
         setRelatedHeroes(data.related_heroes);
       });
-  }, [id]);
+  }, [slug]);
 
   if (!hero) return <p><Loading/></p>;
 
@@ -205,7 +208,7 @@ export default function Detail() {
           </div>
           <div className={styles.heroRight}>
             <span className={styles.timesLabel}>Active Period</span>
-            <span className={styles.timesValue}>1990 – Present</span>
+            <span className={styles.timesValue}>{hero.hero.birth_year} – {hero.hero.death_year}</span>
           </div>
         </div>
       </section>

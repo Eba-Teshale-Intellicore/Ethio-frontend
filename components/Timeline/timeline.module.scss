@@ -6,7 +6,7 @@ $white:        #ffffff;
 $off-white:    rgba(255, 255, 255, 0.55);
 $muted:        rgba(255, 255, 255, 0.28);
 $dark:         #0a0a0a;
-$card-bg:      #0f1a0f;           // very dark green tint — ties to accent
+$card-bg:      rgba(233, 137,6, 0.932);           // very dark green tint — ties to accent
 $card-border:  rgba(255, 255, 255, 0.08);
 $dot-color:    $accent;
 $line-color:   rgba(184, 255, 60, 0.35);
@@ -182,7 +182,7 @@ $ease:         cubic-bezier(0.16, 1, 0.3, 1);
 
 // ─── Card ─────────────────────────────────────────────────────────────────────
 .content {
-  background: $card-bg;
+  background: $accent-dim;
   border: 1px solid $card-border;
   border-radius: 4px;
   padding: 20px;

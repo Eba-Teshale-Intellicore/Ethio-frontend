@@ -31,7 +31,8 @@ $ease:        cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .heroBg {
-  object-fit: cover;
+  object-fit: contain;
+  inset: 0;
   z-index: 0;
 }
 
@@ -39,7 +40,7 @@ $ease:        cubic-bezier(0.16, 1, 0.3, 1);
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.75) 100%),
+    linear-gradient(180deg, $accent 0%, $accent 100%),
     linear-gradient(to right, rgba(0,0,0,0.6) 0%, transparent 60%);
   z-index: 1;
 }
@@ -549,8 +550,12 @@ $ease:        cubic-bezier(0.16, 1, 0.3, 1);
 .relatedBody {
   padding: 1rem 1.25rem 1.25rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  p{
+    color: $accent;
+  }
 }
 
 .relatedName {
