@@ -486,7 +486,7 @@ export default function Directory() {
   const [heroes, setHeroes] = useState<Heroes[]>([]);
   const [eras, setEra] = useState<Era[]>([])
   const [categories, setCategories] = useState<Category[]>([])
-  const [visibleCount, setVisibleCount] = useState(12);
+  const [visibleCount, setVisibleCount] = useState(20);
   const [selectedEra, setSelectedEra] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
 
