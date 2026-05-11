@@ -23,7 +23,7 @@ export default function Directory() {
 
         {/* TITLE */}
         <h1 className="text-4xl md:text-6xl font-extrabold text-foreground">
-          Directory
+          Directorys
         </h1>
 
         <p className="text-lg text-muted-foreground">
