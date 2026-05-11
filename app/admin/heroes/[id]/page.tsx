@@ -4,7 +4,7 @@
 
 "use client";
 
-// import styles from "./detail.module.scss";
+import styles from "./deta.module.scss";
 import Image from "next/image";
 import { ExternalLink, History, Trophy, Plus, MoveRight, Menu } from "lucide-react";
 import { useState } from "react";
