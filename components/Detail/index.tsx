@@ -96,7 +96,7 @@ function RelatedCard({ hero, index }: { hero: RelatedHero; index: number }) {
           transition={{ duration: 0.2 }}
         >
           <Link
-            href={`/hero/${hero.id}`}
+            href={`/detail/hero/${hero.id}`}
             className={styles.relatedLink}
           >
             View profile <MoveRight size={12} />
