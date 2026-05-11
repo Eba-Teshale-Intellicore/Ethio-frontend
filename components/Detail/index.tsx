@@ -80,7 +80,6 @@ function RelatedCard({ hero, index }: { hero: RelatedHero; index: number }) {
           <Image 
           src={`https://ethio-heroes.onrender.com/static/${hero.hero_image}`}
           fill alt={hero.name} 
-          placeholder="blur"
           sizes="(max-width: 768px) 100vw, 33vw" 
           className={styles.relatedImg} 
           />
@@ -129,7 +128,6 @@ export default function Detail() {
   const [relatedHeroes, setRelatedHeroes] = useState<RelatedHero[]>([]);
 
   useEffect(() => {
-    if (!slug) return;
     fetch(`https://ethio-heroes.onrender.com/api/hero/${slug}`)
       .then((res) => res.json())
       .then((data) => {
@@ -152,7 +150,6 @@ export default function Detail() {
             alt={hero.name}
             className={styles.heroBg}
             sizes="100vw"
-            placeholder="blur"
             priority
           />
         <div className={styles.heroGradient} />
