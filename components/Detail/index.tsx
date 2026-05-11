@@ -129,10 +129,11 @@ export default function Detail() {
   const [relatedHeroes, setRelatedHeroes] = useState<RelatedHero[]>([]);
 
   useEffect(() => {
+    if (!slug) return;
     fetch(`https://ethio-heroes.onrender.com/api/hero/${slug}`)
       .then((res) => res.json())
       .then((data) => {
-        setHero(data);
+        setHero(data.hero);                // FIX
         setRelatedHeroes(data.related_heroes);
       });
   }, [slug]);
@@ -148,7 +149,7 @@ export default function Detail() {
           <Image
             src={`https://ethio-heroes.onrender.com/static/${hero.hero.hero_image}`}
             fill
-            alt={hero.hero.name}
+            alt={hero.name}
             className={styles.heroBg}
             sizes="100vw"
             placeholder="blur"
@@ -197,18 +198,18 @@ export default function Detail() {
         <div className={styles.heroContent}>
           <div className={styles.heroLeft}>
             <span className={styles.heroEra}>
-              {hero.hero.era_name}
+              {hero.era_name}
             </span>
             <h1 className={styles.heroTitle}>
-              {hero.hero.name}
+              {hero.name}
             </h1>
             <p className={styles.heroDesc}>
-              {hero.hero.short_description}
+              {hero.short_description}
             </p>
           </div>
           <div className={styles.heroRight}>
             <span className={styles.timesLabel}>Active Period</span>
-            <span className={styles.timesValue}>{hero.hero.birth_year} – {hero.hero.death_year}</span>
+            <span className={styles.timesValue}>{hero.birth_year} – {hero.death_year}</span>
           </div>
         </div>
       </section>
@@ -227,13 +228,13 @@ export default function Detail() {
               </h2>
               <div className={styles.bodyText}>
                 <p>
-                  {hero.hero.name}
+                  {hero.name}
                 </p>
                 <p>
-                  {hero.hero.full_history}
+                  {hero.full_history}
                 </p>
                 <p>
-                  {hero.hero.full_biography}
+                  {hero.full_biography}
                 </p>
               </div>
             </section>
