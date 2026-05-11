@@ -49,6 +49,7 @@ type RelatedHero = {
   name: string;
   hero_image: string;
   era_name: string;
+  short_description: string;
 };
 
 function RelatedCard({ hero, index }: { hero: RelatedHero; index: number }) {
@@ -88,6 +89,7 @@ function RelatedCard({ hero, index }: { hero: RelatedHero; index: number }) {
 
       <div className={styles.relatedBody}>
         <h3 className={styles.relatedName}>{hero.name}</h3>
+        <p>{hero.short_description}</p>
         <motion.div
           className={styles.relatedLink}
           animate={{ opacity: hovered ? 1 : 0, x: hovered ? 0 : -5 }}
