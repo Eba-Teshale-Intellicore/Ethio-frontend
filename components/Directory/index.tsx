@@ -337,9 +337,9 @@ const NAV_LINKS   = [
   { label: "About Us",   href: "#"   },
 ] as const;
 
-
 type Heroes = {
   id: number;
+  slug: string;
   name: string;
   hero_image: string;
   short_description: string;
@@ -464,7 +464,7 @@ function HeroCard({ hero, index, featured }: HeroProps) {
             whileHover={{ scale: 1.15 }}
             whileTap={{ scale: 0.92 }}
             aria-label="Add to list"
-            onClick={() => router.push(`/detail/hero/${hero.id}`)}
+            onClick={() => router.push(`/detail/hero/${hero.slug}`)}
           >
             <Plus size={14} />
           </motion.button>
