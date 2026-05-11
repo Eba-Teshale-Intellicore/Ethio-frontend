@@ -222,7 +222,7 @@ $ease:        cubic-bezier(0.16, 1, 0.3, 1);
   white-space: nowrap;
 
   // &:hover { background: lighten(#b8ff3c, 8%); transform: scale(1.03); }
-  &:hover { background: #b8ff3c ; transform: scale(1.03); }
+  &:hover { background: $accent-glow ; transform: scale(1.03); }
 }
 
 // ─── Main ─────────────────────────────────────────────────────────────────────

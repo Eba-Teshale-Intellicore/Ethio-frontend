@@ -1,10 +1,20 @@
 // ─── Tokens ────────────────────────────────────────────────────────────────
 $bg: #0a0b0f;
 $surface: #111318;
-$accent: #4f8ef7;
-$accent-2: #7c5af7;
 $text-muted: #6b7280;
 $ring-size: 48px;
+$accent:        rgb(233, 137, 6);
+$accent-2:    rgba(233, 137, 6, 0.12);
+$accent-glow:   rgba(233, 137, 6, 0.25);
+$white:       #ffffff;
+$off-white:   rgba(255, 255, 255, 0.55);
+$muted:       rgba(255, 255, 255, 0.28);
+$dark:        #0a0a0a;
+$card-bg:     rgba(233, 137, 6, 0.05);
+$card-border: rgba(255, 255, 255, 0.08);
+$input-bg:    rgba(255, 255, 255, 0.06);
+$ease:        cubic-bezier(0.16, 1, 0.3, 1);
+
 
 // ─── Keyframes ─────────────────────────────────────────────────────────────
 @keyframes spin {
@@ -30,6 +40,7 @@ $ring-size: 48px;
   to   { opacity: 1; transform: translateY(0); }
 }
 
+// ---- Loading-----------------------------------
 // ─── Overlay ────────────────────────────────────────────────────────────────
 .overlay {
   position: fixed;
