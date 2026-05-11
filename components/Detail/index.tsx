@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useParams } from "next/navigation";
 import Link from "next/link";
+import Loading from "@/app/loading"
 
 // import pic1 from "@/public/assets/fasil.jpg";
 // import pic2 from "@/public/assets/nigat.jpg";
@@ -133,7 +134,7 @@ export default function Detail() {
       });
   }, [id]);
 
-  if (!hero) return <p>Loading...</p>;
+  if (!hero) return <p><Loading/></p>;
 
   return (
     <div className={styles.page}>
