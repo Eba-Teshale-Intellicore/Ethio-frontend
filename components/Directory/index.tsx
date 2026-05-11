@@ -486,7 +486,8 @@ export default function Directory() {
   const [heroes, setHeroes] = useState<Heroes[]>([]);
   const [eras, setEra] = useState<Era[]>([])
   const [categories, setCategories] = useState<Category[]>([])
-  const [visibleCount, setVisibleCount] = useState(20);
+  const [visibleCount, setVisibleCount] = useState(9);
+
   const [selectedEra, setSelectedEra] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
 
@@ -561,6 +562,7 @@ export default function Directory() {
       </header>
 
       {/* ── Cards grid ── */}
+
       <main className={styles.main}>
         <div className={styles.cards}>
           {heroes.slice(0, visibleCount).map((hero, index) => (
@@ -573,29 +575,36 @@ export default function Directory() {
           ))}
         </div>
 
-        {/* Load more */}
         <div className={styles.loadMore}>
           {visibleCount < heroes.length && (
             <motion.button
               className={styles.loadMoreBtn}
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
-              onClick={() => setVisibleCount((prev) => prev + 12)} >
+              onClick={() =>
+                setVisibleCount((prev) =>
+                  Math.min(prev + 5, heroes.length)
+                )
+              }
+            >
               Discover More <ChevronsDown size={15} />
             </motion.button>
           )}
 
-          {visibleCount > 6 && (
+          {visibleCount > 9 && (
             <motion.button
               className={styles.loadMoreBtn}
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
-              onClick={() => setVisibleCount((prev) => prev - 6)}
+              onClick={() =>
+                setVisibleCount((prev) =>
+                  Math.max(prev - 5, 9)
+                )
+              }
             >
               Discover Less <ChevronsUp size={15} />
             </motion.button>
           )}
-
         </div>
       </main>
     </div>
