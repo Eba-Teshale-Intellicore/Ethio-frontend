@@ -77,7 +77,7 @@ function RelatedCard({ hero, index }: { hero: RelatedHero; index: number }) {
           animate={{ scale: hovered ? 1.06 : 1 }}
           transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
         >
-          <Image 
+        <Image
           src={`https://ethio-heroes.onrender.com/static/${hero.hero_image}`}
           fill alt={hero.name} 
           sizes="(max-width: 768px) 100vw, 33vw" 
@@ -131,8 +131,11 @@ export default function Detail() {
     fetch(`https://ethio-heroes.onrender.com/api/hero/${slug}`)
       .then((res) => res.json())
       .then((data) => {
-        setHero(data.hero);                // FIX
+        setHero(data.hero);
         setRelatedHeroes(data.related_heroes);
+      })
+      .catch((err) => {
+        console.error("API error:", err);
       });
   }, [slug]);
 
@@ -145,7 +148,7 @@ export default function Detail() {
       <section className={styles.hero}>
         {/* Background image */}
           <Image
-            src={`https://ethio-heroes.onrender.com/static/${hero.hero.hero_image}`}
+            src={`https://ethio-heroes.onrender.com/static/${hero.hero_image}`}
             fill
             alt={hero.name}
             className={styles.heroBg}
