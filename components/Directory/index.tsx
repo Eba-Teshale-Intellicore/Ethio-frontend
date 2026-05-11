@@ -327,6 +327,7 @@ import styles from "./directory.module.scss";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 const NAV_LINKS   = [
   { label: "Home",       href: "/"   },
@@ -407,6 +408,7 @@ function Dropdown({ label, options, onSelect }: { label: string; options: readon
 
 function HeroCard({ hero, index, featured }: HeroProps) {
   const [hovered, setHovered] = useState(false);
+  const router = useRouter();
 
   return (
     <motion.div
@@ -462,6 +464,7 @@ function HeroCard({ hero, index, featured }: HeroProps) {
             whileHover={{ scale: 1.15 }}
             whileTap={{ scale: 0.92 }}
             aria-label="Add to list"
+            onClick={() => router.push(`/detail/hero/${hero.id}`)}
           >
             <Plus size={14} />
           </motion.button>
