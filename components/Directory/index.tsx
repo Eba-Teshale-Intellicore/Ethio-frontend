@@ -585,7 +585,7 @@ export default function Directory() {
             </motion.button>
           )}
 
-          {visibleCount > 2 && (
+          {visibleCount > 4 && (
             <motion.button
               className={styles.loadMoreBtn}
               whileHover={{ scale: 1.04 }}
