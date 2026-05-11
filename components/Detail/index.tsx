@@ -526,7 +526,7 @@ export default function Detail() {
           <div>
             <span>Active Period</span>
             <span>
-              {hero.birth_year} – {hero.death_year}
+              1990 – present
             </span>
           </div>
         </div>
