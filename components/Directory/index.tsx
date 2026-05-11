@@ -580,7 +580,7 @@ export default function Directory() {
               className={styles.loadMoreBtn}
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
-              onClick={() => setVisibleCount((prev) => prev + 6)} >
+              onClick={() => setVisibleCount((prev) => prev + 12)} >
               Discover More <ChevronsDown size={15} />
             </motion.button>
           )}
