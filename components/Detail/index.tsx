@@ -434,18 +434,30 @@ export default function Detail() {
 
   // ─── FETCH ─────────────────────────────────────────────────────────
 
-  useEffect(() => {
-    if (!slug) return;
+    useEffect(() => {
+      if (!slug) return;
 
-    const fetchHero = async () => {
-        const res = await fetch(
-          `https://ethio-heroes.onrender.com/api/hero/${slug}`
-        );
-        const data = await res.json();
-        setHero(data.hero);
-        setRelatedHeroes(data.related_heroes || []);
-    };
-  }, [slug]);
+      const fetchHero = async () => {
+        try {
+          const res = await fetch(
+            `https://ethio-heroes.onrender.com/api/hero/${slug}`
+          );
+
+          if (!res.ok) {
+            throw new Error("Failed to fetch hero");
+          }
+
+          const data = await res.json();
+
+          setHero(data.hero);
+          setRelatedHeroes(data.related_heroes || []);
+        } catch (err) {
+          console.error("API Error:", err);
+        }
+      };
+
+      fetchHero(); // ✅ FIX: you forgot to call it
+    }, [slug]);
 
   // ─── LOADING ───────────────────────────────────────────────────────
 
@@ -459,9 +471,7 @@ export default function Detail() {
       {/* HERO */}
       <section className={styles.hero}>
         <Image
-          src={`https://ethio-heroes.onrender.com/static/${
-            hero?.hero_image || hero?.hero?.hero_image
-          }`}
+          src={`https://ethio-heroes.onrender.com/static/${hero.hero_image}`}
           fill
           alt={hero.name}
           className={styles.heroBg}
