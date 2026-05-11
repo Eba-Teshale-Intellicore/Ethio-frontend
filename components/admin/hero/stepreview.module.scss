@@ -1,0 +1,128 @@
+.container {
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ddd;
+}
+
+.card {
+  width: 70rem;
+
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+
+  background: #111;
+
+  border-radius: 20px;
+
+  overflow: auto;
+}
+
+.left {
+  background: #1a1a1a;
+
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 2rem;
+}
+
+.right {
+  padding: 2rem;
+
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 1.5rem;
+}
+
+.section {
+  background: #222;
+
+  padding: 1rem;
+
+  border-radius: 10px;
+}
+
+.image {
+  width: 120px;
+  height: 120px;
+
+  object-fit: cover;
+
+  border-radius: 10px;
+}
+
+.grid {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.thumb {
+  width: 80px;
+  height: 80px;
+
+  object-fit: cover;
+
+  border-radius: 8px;
+}
+
+.tag {
+  background: gold;
+
+  color: black;
+
+  padding: 5px 10px;
+
+  border-radius: 20px;
+
+  margin-right: 5px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 1rem;
+}
+
+.back {
+  padding: 10px 18px;
+
+  border: 1px solid #555;
+
+  background: transparent;
+
+  color: white;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+}
+
+.submit {
+  padding: 10px 18px;
+
+  background: gold;
+
+  border: none;
+
+  border-radius: 8px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+}

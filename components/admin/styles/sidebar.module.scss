@@ -1,0 +1,143 @@
+.sidebar {
+    width: 220px;
+    height: 100vh;
+    background: #111;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+}
+
+/* Header */
+.sidebarheader {
+    padding: 1rem;
+    border-bottom: 1px solid #222;
+
+    .logo {
+        width: 40px;
+        height: auto;
+    }
+}
+
+/* Menu */
+.sidebarcontent {
+    flex: 1;
+
+    ul {
+        list-style: none;
+        padding: 1rem 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        li {
+            border-radius: 8px;
+
+            a {
+                display: flex;
+                align-items: center;
+                gap: 0.7rem;
+                padding: 0.6rem 1.2rem;
+                color: #ccc;
+                text-decoration: none;
+                transition: 0.2s;
+            }
+
+            &:hover a {
+                background: #222;
+                color: #fff;
+            }
+        }
+    }
+}
+
+/* Active */
+.active a {
+    background: #333;
+    color: #fff;
+}
+
+/* Footer */
+.sidebarfooter {
+    border-top: 1px solid #222;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+
+    .avatar {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: #444;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+    }
+
+    p {
+        margin: 0;
+        font-size: 0.9rem;
+    }
+
+    span {
+        font-size: 0.7rem;
+        color: #aaa;
+    }
+}
+
+.sidebar {
+    width: 220px;
+    transition: all 0.3s ease;
+}
+
+/* COLLAPSED STATE */
+.collapsed {
+    width: 70px;
+}
+
+/* Header */
+.sidebarheader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+
+    button {
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+    }
+}
+
+/* Menu */
+.sidebarcontent ul li a {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.6rem 1rem;
+}
+
+/* Center icons when collapsed */
+.collapsed .sidebarcontent ul li a {
+    justify-content: center;
+}
+
+/* Hide text smoothly */
+.collapsed p {
+    display: none;
+}
+
+/* Footer */
+.sidebarfooter {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+}
+
+.collapsed .sidebarfooter {
+    justify-content: center;
+}

@@ -1,0 +1,604 @@
+
+// // ===============================================================
+// ─── Tokens (same as zoom / lhero / timeline / horscroll / directory) ────────
+$accent:        rgb(233, 137, 6);
+$accent-dim:    rgba(233, 137, 6, 0.12);
+$accent-glow:   rgba(233, 137, 6, 0.25);
+$white:       #ffffff;
+$off-white:   rgba(255, 255, 255, 0.6);
+$muted:       rgba(255, 255, 255, 0.3);
+$dark:        #0a0a0a;
+$card-bg:     rgba(233, 137, 6, 0.05);
+$card-border: rgba(255, 255, 255, 0.08);
+$box-bg:      rgba(233, 137, 6, 0.05);
+$ease:        cubic-bezier(0.16, 1, 0.3, 1);
+
+// ─── Page wrapper ─────────────────────────────────────────────────────────────
+.page {
+  background: $dark;
+  color: $white;
+  min-height: 100vh;
+}
+
+// ─── Hero section ─────────────────────────────────────────────────────────────
+.hero {
+  position: relative;
+  height: 92vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.heroBg {
+  object-fit: cover;
+  z-index: 0;
+}
+
+.heroGradient {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.75) 100%),
+    linear-gradient(to right, rgba(0,0,0,0.6) 0%, transparent 60%);
+  z-index: 1;
+}
+
+// ─── Nav ──────────────────────────────────────────────────────────────────────
+.heroHeader {
+  position: relative;
+  z-index: 10;
+  padding: 2rem 4rem;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.menuBtn {
+  background: transparent;
+  border: 1px solid $card-border;
+  color: $off-white;
+  width: 36px;
+  height: 36px;
+  border-radius: 3px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+
+  &:hover { border-color: $accent; color: $accent; }
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 2rem;
+
+  a {
+    text-decoration: none;
+    color: $off-white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    transition: color 0.2s $ease;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: $accent;
+      transition: width 0.25s $ease;
+    }
+
+    &:hover { color: $white; &::after { width: 100%; } }
+  }
+}
+
+.mobileNav {
+  list-style: none;
+  padding: 1rem 2rem;
+  margin: 0;
+  background: rgba(10,10,10,0.95);
+  border: 1px solid $card-border;
+  border-radius: 4px;
+  position: absolute;
+  top: 100%;
+  left: 4rem;
+  z-index: 20;
+
+  li { margin-bottom: 0.5rem; }
+  a {
+    text-decoration: none;
+    color: $off-white;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    &:hover { color: $accent; }
+  }
+}
+
+// ─── Hero content ─────────────────────────────────────────────────────────────
+.heroContent {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 4rem 3rem;
+}
+
+.heroLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-width: 55%;
+}
+
+.heroEra {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  color: $accent;
+  font-weight: 700;
+}
+
+.heroTitle {
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  margin: 0;
+  color: $white;
+  text-shadow: 0 4px 32px rgba(0,0,0,0.5);
+}
+
+.heroDesc {
+  font-size: clamp(0.85rem, 1.2vw, 1rem);
+  color: $off-white;
+  line-height: 1.65;
+  max-width: 50ch;
+  margin: 0;
+}
+
+.heroRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+  border-right: 2px solid $accent;
+  padding-right: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.timesLabel {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: $muted;
+}
+
+.timesValue {
+  font-size: clamp(1.25rem, 2.5vw, 2rem);
+  font-weight: 800;
+  color: $white;
+  letter-spacing: -0.02em;
+}
+
+// ─── Content area ─────────────────────────────────────────────────────────────
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 4rem;
+}
+
+.detailGrid {
+  display: grid;
+  grid-template-columns: 2.5fr 1fr;
+  gap: 2.5rem;
+}
+
+// ─── Main column ──────────────────────────────────────────────────────────────
+.mainCol {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.contentBox {
+  background: $box-bg;
+  border: 1px solid $card-border;
+  border-radius: 4px;
+  padding: 2.5rem;
+  position: relative;
+
+  // Top accent line
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 2rem;
+    right: 2rem;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $accent, transparent);
+    opacity: 0.18;
+  }
+}
+
+.boxTitle {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: $white;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 1.75rem;
+
+  svg { color: $accent; flex-shrink: 0; }
+}
+
+.bodyText {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+
+  p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: $off-white;
+    margin: 0;
+  }
+}
+
+// ─── Achievements timeline ────────────────────────────────────────────────────
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border-left: 1px solid rgba(184, 255, 60, 0.25);
+  padding-left: 1.5rem;
+}
+
+.timelineItem {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 1rem;
+  position: relative;
+
+  // Dot on the line
+  &::before {
+    content: "";
+    position: absolute;
+    left: -1.5rem;
+    top: 6px;
+    width: 8px;
+    height: 8px;
+    background: $accent;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 8px $accent-glow;
+  }
+}
+
+.tYear {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: $accent;
+  letter-spacing: 0.05em;
+  padding-top: 2px;
+}
+
+.tContent {
+  strong {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: $white;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+  p {
+    font-size: 0.85rem;
+    color: $off-white;
+    line-height: 1.65;
+    margin: 0;
+  }
+}
+
+// ─── Sidebar ──────────────────────────────────────────────────────────────────
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.sidebarBox {
+  background: $box-bg;
+  border: 1px solid $card-border;
+  border-radius: 4px;
+  padding: 1.75rem;
+}
+
+.sidebarTitle {
+  font-size: 1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: $white;
+  margin: 0 0 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid $card-border;
+}
+
+// References
+.sourceList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: $off-white;
+    font-size: 0.8rem;
+    transition: color 0.2s $ease;
+
+    svg { color: $accent; flex-shrink: 0; }
+    &:hover { color: $white; }
+  }
+}
+
+// Comments
+.commentForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+
+  textarea {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid $card-border;
+    border-radius: 3px;
+    color: $white;
+    font-size: 0.85rem;
+    font-family: inherit;
+    padding: 0.75rem 1rem;
+    resize: vertical;
+    outline: none;
+    transition: border-color 0.2s $ease, box-shadow 0.2s;
+
+    &::placeholder { color: $muted; }
+    &:focus {
+      border-color: rgba(184, 255, 60, 0.4);
+      box-shadow: 0 0 0 3px $accent-dim;
+    }
+  }
+}
+
+.btnPrimary {
+  align-self: flex-end;
+  background: $accent;
+  color: $dark;
+  border: none;
+  padding: 0.55rem 1.4rem;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  transition: background 0.2s $ease;
+
+  // &:hover { background: lighten(#b8ff3c, 8%); }
+  &:hover { background: #b8ff3c; }
+}
+
+.commentsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.commentItem {
+  padding: 0.75rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid $card-border;
+  border-radius: 3px;
+
+  strong { font-size: 0.8rem; color: $white; display: block; margin-bottom: 2px; }
+  p { font-size: 0.8rem; color: $off-white; margin: 0; }
+}
+
+.commentDate {
+  font-size: 0.7rem;
+  color: $muted;
+}
+
+.emptyState {
+  font-size: 0.8rem;
+  color: $muted;
+  font-style: italic;
+  margin: 0;
+}
+
+// ─── Related heroes ───────────────────────────────────────────────────────────
+.related {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 4rem 6rem;
+}
+
+.relatedHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.eyebrow {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  color: $accent;
+  font-weight: 600;
+}
+
+.relatedTitle {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: $white;
+  margin: 0;
+}
+
+.titleAccent {
+  color: $accent;
+  text-shadow: 0 0 40px $accent-glow;
+}
+
+.relatedGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+// ─── Related card ─────────────────────────────────────────────────────────────
+.relatedCard {
+  position: relative;
+  background: $card-bg;
+  border: 1px solid $card-border;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+}
+
+.cornerTL, .cornerBR {
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  z-index: 5;
+  pointer-events: none;
+}
+.cornerTL {
+  top: 8px; left: 8px;
+  border-top: 1.5px solid $accent;
+  border-left: 1.5px solid $accent;
+}
+.cornerBR {
+  bottom: 8px; right: 8px;
+  border-bottom: 1.5px solid $accent;
+  border-right: 1.5px solid $accent;
+}
+
+.relatedImgWrap {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.relatedImgInner {
+  position: absolute;
+  inset: 0;
+}
+
+.relatedImg { object-fit: cover; }
+
+.relatedOverlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 55%),
+    radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.3) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.era {
+  position: absolute;
+  top: 9px;
+  left: 9px;
+  background: rgba(0,0,0,0.55);
+  border: 1px solid $card-border;
+  color: $accent;
+  padding: 0.12rem 0.6rem;
+  border-radius: 2px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  z-index: 3;
+}
+
+.relatedBody {
+  padding: 1rem 1.25rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.relatedName {
+  font-size: 1rem;
+  font-weight: 800;
+  color: $white;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.relatedLink {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: $accent;
+  text-decoration: none;
+}
+
+.cardLine {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: $accent;
+  box-shadow: 0 0 10px $accent-glow;
+  transform-origin: left;
+}
+
+// ─── Responsive ───────────────────────────────────────────────────────────────
+@media (max-width: 900px) {
+  .heroContent { flex-direction: column; align-items: flex-start; gap: 1.5rem; padding: 0 2rem 2.5rem; }
+  .heroLeft    { max-width: 100%; }
+  .heroRight   { align-items: flex-start; border-right: none; border-left: 2px solid rgba(184,255,60,0.5); padding-left: 1rem; }
+  .heroHeader  { padding: 1.5rem 2rem; }
+  .menuBtn     { display: flex; }
+  .navList     { display: none; }
+  .content     { padding: 3rem 1.5rem; }
+  .detailGrid  { grid-template-columns: 1fr; }
+  .related     { padding: 0 1.5rem 4rem; }
+  .relatedGrid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 600px) {
+  .relatedGrid { grid-template-columns: 1fr; }
+  .heroTitle   { font-size: 3rem; }
+}

@@ -1,0 +1,413 @@
+// ─── Tokens (same as all other components) ───────────────────────────────────
+$accent:      #b8ff3c;
+$accent-glow: rgba(184, 255, 60, 0.22);
+$accent-dim:  rgba(184, 255, 60, 0.08);
+$white:       #ffffff;
+$off-white:   rgba(255, 255, 255, 0.6);
+$muted:       rgba(255, 255, 255, 0.28);
+$dark:        #0a0a0a;
+$card-bg:     #0f1a0f;
+$card-border: rgba(255, 255, 255, 0.08);
+$input-bg:    rgba(255, 255, 255, 0.05);
+$error:       #ff5c5c;
+$ease:        cubic-bezier(0.16, 1, 0.3, 1);
+
+// ─── Page ─────────────────────────────────────────────────────────────────────
+.container {
+  min-height: 100vh;
+  background: $dark;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+// Film grain
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px;
+  z-index: 0;
+}
+
+// ─── Card ─────────────────────────────────────────────────────────────────────
+.card {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: min(900px, 100%);
+  border: 1px solid $card-border;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.03),
+    0 32px 80px rgba(0,0,0,0.6);
+}
+
+// ─── Left panel ───────────────────────────────────────────────────────────────
+.left {
+  position: relative;
+  background: $card-bg;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.75rem;
+  padding: 3rem 2.5rem;
+  text-align: center;
+  overflow: hidden;
+
+  // Radial accent glow
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 260px;
+    height: 260px;
+    background: radial-gradient(circle, $accent-glow 0%, transparent 70%);
+    pointer-events: none;
+  }
+}
+
+// Corner accents
+.cornerTL, .cornerBR {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  z-index: 3;
+  pointer-events: none;
+}
+.cornerTL {
+  top: 10px; left: 10px;
+  border-top: 1.5px solid $accent;
+  border-left: 1.5px solid $accent;
+}
+.cornerBR {
+  bottom: 10px; right: 10px;
+  border-bottom: 1.5px solid $accent;
+  border-right: 1.5px solid $accent;
+}
+
+// Logo
+.logoWrap {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1.5px solid rgba(184, 255, 60, 0.35);
+  box-shadow: 0 0 20px $accent-glow;
+  flex-shrink: 0;
+}
+
+.logo { object-fit: cover; }
+
+.logoOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.2);
+  border-radius: 50%;
+}
+
+.leftText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.eyebrow {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  color: $accent;
+  font-weight: 700;
+}
+
+.welcomeTitle {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: $white;
+  margin: 0;
+}
+
+.welcomeSub {
+  font-size: 0.82rem;
+  color: $off-white;
+  line-height: 1.6;
+  max-width: 24ch;
+  margin: 0 auto;
+}
+
+.decorLine {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, $accent, transparent);
+}
+
+// ─── Right panel ──────────────────────────────────────────────────────────────
+.right {
+  background: $dark;
+  padding: 3rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-left: 1px solid $card-border;
+}
+
+.formHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.formTitle {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: $white;
+  margin: 0;
+}
+
+// ─── Social buttons ───────────────────────────────────────────────────────────
+.socials {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.socialBtn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0.6rem;
+  background: $input-bg;
+  border: 1px solid $card-border;
+  border-radius: 3px;
+  color: $off-white;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s $ease, color 0.2s $ease, background 0.2s $ease;
+
+  &:hover {
+    border-color: rgba(255,255,255,0.2);
+    color: $white;
+    background: rgba(255,255,255,0.07);
+  }
+}
+
+// ─── Divider ──────────────────────────────────────────────────────────────────
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0.25rem 0;
+
+  &::before, &::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: $card-border;
+  }
+
+  span {
+    font-size: 0.7rem;
+    color: $muted;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+  }
+}
+
+// ─── Error box ────────────────────────────────────────────────────────────────
+.errorBox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 92, 92, 0.08);
+  border: 1px solid rgba(255, 92, 92, 0.3);
+  border-radius: 3px;
+  padding: 0.6rem 0.9rem;
+  font-size: 0.8rem;
+  color: $error;
+
+  svg { flex-shrink: 0; }
+}
+
+// ─── Input fields ─────────────────────────────────────────────────────────────
+.inputBox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+
+  label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: $off-white;
+    transition: color 0.2s $ease;
+  }
+
+  input {
+    width: 100%;
+    padding: 0.65rem 0.9rem;
+    background: $input-bg;
+    border: 1px solid $card-border;
+    border-radius: 3px;
+    color: $white;
+    font-size: 0.875rem;
+    outline: none;
+    transition: border-color 0.2s $ease, box-shadow 0.2s;
+
+    &::placeholder { color: $muted; }
+  }
+
+  &.focused {
+    label { color: $accent; }
+
+    input {
+      border-color: rgba(184, 255, 60, 0.45);
+      box-shadow: 0 0 0 3px $accent-dim;
+    }
+  }
+}
+
+// Password wrapper with eye toggle
+.passwordWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  input { padding-right: 2.5rem; }
+}
+
+.eyeBtn {
+  position: absolute;
+  right: 0.75rem;
+  background: transparent;
+  border: none;
+  color: $muted;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+
+  &:hover { color: $accent; }
+}
+
+// ─── Forgot password ──────────────────────────────────────────────────────────
+.forgot {
+  font-size: 0.75rem;
+  color: $muted;
+  text-decoration: none;
+  align-self: flex-end;
+  margin-top: -0.25rem;
+  transition: color 0.2s $ease;
+
+  &:hover { color: $accent; }
+}
+
+// ─── Submit button ────────────────────────────────────────────────────────────
+.submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+  background: $accent;
+  color: $dark;
+  border: none;
+  border-radius: 3px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  transition: background 0.2s $ease;
+  min-height: 46px;
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  // &:not(:disabled):hover {
+  //   background: lighten(#b8ff3c, 8%);
+  // }
+  &:not(:disabled):hover {
+    background: #b8ff3c;
+  }
+}
+
+// Loading spinner
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(10,10,10,0.3);
+  border-top-color: $dark;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+// ─── Switch text ──────────────────────────────────────────────────────────────
+.switchText {
+  font-size: 0.78rem;
+  color: $muted;
+  text-align: center;
+  margin: 0;
+
+  a {
+    color: $accent;
+    text-decoration: none;
+    font-weight: 700;
+    margin-left: 4px;
+    transition: opacity 0.2s;
+
+    &:hover { opacity: 0.8; }
+  }
+}
+
+// ─── Responsive ───────────────────────────────────────────────────────────────
+@media (max-width: 640px) {
+  .card {
+    grid-template-columns: 1fr;
+    border-radius: 4px;
+  }
+
+  .left {
+    padding: 2.5rem 2rem 2rem;
+    flex-direction: row;
+    text-align: left;
+    gap: 1.25rem;
+
+    &::after { display: none; }
+  }
+
+  .leftText { align-items: flex-start; }
+  .welcomeSub { margin: 0; }
+  .decorLine { display: none; }
+
+  .right {
+    border-left: none;
+    border-top: 1px solid $card-border;
+    padding: 2rem 1.5rem;
+  }
+}

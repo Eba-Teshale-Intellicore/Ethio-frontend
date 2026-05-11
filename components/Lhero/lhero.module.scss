@@ -1,0 +1,165 @@
+$accent:        rgb(233, 137, 6);
+$accent-dim:    rgba(233, 137, 6, 0.12);
+$accent-glow:   rgba(233, 137, 6, 0.25);
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 200vh;
+  position: relative;
+  background-color: black;
+  border: 10px solid $accent;
+  border-bottom: none;
+}
+
+/* LEFT */
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+
+  h1 {
+    font-family: var(--font-dancing), cursive;
+    font-size: 5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .subtitle {
+    font-family: var(--font-dancing), cursive;
+    font-size: 1.5rem;
+    opacity: 0.8;
+    margin-bottom: 20px;
+  }
+
+  .description {
+    max-width: 500px;
+    line-height: 1.6;
+    opacity: 0.7;
+    margin-bottom: 40px;
+  }
+
+  .cta {
+    display: flex;
+    gap: 15px;
+
+    button {
+      padding: 12px 20px;
+      border: 1px solid $accent;
+      cursor: pointer;
+      background: black;
+      color: white;
+      transition: 0.3s;
+
+      &:hover {
+        transform: scale(1.05);
+        background: $accent-glow ;
+      }
+    }
+  }
+}
+
+/* RIGHT */
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-right: 40px;
+
+  .scene {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  .imageWrapper {
+    position: absolute;
+    width: 23vw;
+    height: 65vh;
+    left: -10vw;
+    img{
+      object-fit: cover;
+      }
+  }
+  .imageWrapper:nth-of-type(2) {
+    top: 4vh;
+    left: 8vw;
+    width: 15vw;
+    height: 35vh;
+    
+  }
+  .imageWrapper:nth-of-type(3) {
+    top: 60vh;
+    left: -20vw;
+    width: 15vw;
+    height: 35vh;
+  }
+
+}
+
+
+
+}
+  .menuList {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 40px;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      li {
+        font-size: 1rem;
+        font-weight: 800;
+
+        a,button {
+          position: relative;
+          text-decoration: none;
+          opacity: 0.8;
+          transition: all 0.3s ease-in-out;
+
+          &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 0%;
+            height: 1px;
+            background: linear-gradient(90deg, $accent, $accent-dim, transparent,transparent); // gold
+            transition: width 0.3s ease;
+          }
+          svg {
+              opacity: 0;
+              transform: translateX(-5px);
+              transition: all 0.3s ease-in-out;
+            }
+
+          &:hover {
+            color: $accent;
+            opacity: 1;
+            transform: scale(1.05);
+            // font-size: 1.2rem;
+          }
+          &:hover svg {
+            opacity: 1;
+            transform: translateX(0);
+          }
+
+          &:hover::after {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }

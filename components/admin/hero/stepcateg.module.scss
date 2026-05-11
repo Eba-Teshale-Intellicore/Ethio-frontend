@@ -1,0 +1,114 @@
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ddd;
+}
+
+.card {
+  width: 60rem;
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #111;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* LEFT PANEL */
+.left {
+  background: linear-gradient(180deg, #1a1a1a, #222);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* RIGHT PANEL */
+.right {
+  padding: 2rem;
+  color: white;
+}
+
+/* CATEGORY SECTION */
+.cate {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* GRID */
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* CATEGORY CHIP */
+.checkbox {
+    display: flex;
+  padding: 10px 32px;
+  border: 1px solid #444;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: transparent;
+}
+
+.checkbox:hover {
+  border-color: gold;
+}
+
+/* ACTIVE SELECTED */
+.active {
+  background: gold;
+  color: black;
+  border-color: gold;
+}
+
+/* ERROR */
+.error {
+  color: #ff4d4d;
+  font-size: 14px;
+}
+
+/* ACTION BUTTONS */
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.back {
+  padding: 10px 18px;
+  background: transparent;
+  border: 1px solid #555;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.submit {
+  padding: 10px 18px;
+  background: gold;
+  border: none;
+  color: black;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.submit:disabled {
+  background: #666;
+  cursor: not-allowed;
+}

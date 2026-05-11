@@ -1,0 +1,117 @@
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ddd;
+}
+
+.card {
+  width: 60rem;
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #111;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+/* LEFT */
+.left {
+  background: linear-gradient(180deg, #1a1a1a, #222);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* RIGHT */
+.right {
+  padding: 2rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+
+
+
+
+
+/* GRID INPUTS */
+.all{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+
+  input {
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    background: #222;
+    color: white;
+
+    &:focus {
+      outline: 1px solid #555;
+    }
+  }
+}
+.select{
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+
+    select{
+        width: 13rem;
+        border: 1px solid #555;
+        padding: 10px 2rem 10px 1rem;
+    }
+
+    .uploadBox{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        border: 1px dotted #555;
+        border-radius: 1rem;
+        padding: 10px;
+        cursor: pointer;
+        border: 1px solid red;
+
+        input{
+            width: 100%;
+            padding: 0 0 0 4rem;
+        }
+        img{
+            width: 10rem;
+            height: 10rem;
+        }
+    }
+  }
+/* BUTTON */
+.submit {
+  margin-top: 10px;
+  padding: 12px;
+  background: white;
+  color: black;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &:hover {
+    background: #ddd;
+  }
+}

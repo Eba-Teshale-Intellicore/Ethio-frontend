@@ -1,0 +1,275 @@
+// .container {
+//   height: 500vh;
+//   background: #111;
+// }
+
+// .contentContainer {
+//   position: sticky;
+//   top: 0;
+//   height: 100vh;
+//   display: flex;
+//   align-items: center;
+//   overflow: hidden;
+// }
+
+// .images {
+//   display: flex;
+//   gap: 3vw;
+//   padding: 0 4rem;
+// }
+
+// .imagesItems {
+//   position: relative;
+//   min-width: 300px;
+//   height: 400px;
+//   flex-shrink: 0;
+//   border-radius: 20px;
+//   overflow: hidden;
+// }
+
+// .image {
+//   object-fit: cover;
+// }
+
+// ─── Tokens (same as zoom / lhero / timeline) ────────────────────────────────
+$accent:        rgb(233, 137, 6);
+$accent-dim:    rgba(233, 137, 6, 0.12);
+$accent-glow:   rgba(233, 137, 6, 0.25);
+$white:       #ffffff;
+$off-white:   rgba(255, 255, 255, 0.55);
+$muted:       rgba(255, 255, 255, 0.28);
+$dark:        #0a0a0a;
+$card-bg:     rgba(233, 137, 6, 0.05);
+$card-border: rgba(255, 255, 255, 0.08);
+$ease:        cubic-bezier(0.16, 1, 0.3, 1);
+:root {
+  --font-montserrat: "Montserrat", sans-serif;
+  --font-dancing: "Dancing Script", cursive;
+  --font-archivo: "Archivo Black", sans-serif;
+  --font-spicyrice: "Spicy Rice", sans-serif;
+}
+// ─── Container ────────────────────────────────────────────────────────────────
+.container {
+  height: 500vh;
+  background: $dark;
+  position: relative;
+
+  // Separator from timeline above
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 10px;
+    background: linear-gradient(90deg, transparent, $accent, transparent);
+    opacity: 0.2;
+  }
+}
+
+// ─── Sticky viewport ──────────────────────────────────────────────────────────
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  gap: 0;
+}
+
+// ─── Header ───────────────────────────────────────────────────────────────────
+.header {
+  padding: 0 4rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  .span {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  color: $accent;
+  font-weight: 600;
+}
+.title {
+  font-family: var(--font-spicyrice);
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: 0.09em;
+  color: $white;
+  margin: 0;
+  line-height: 1;
+  span {
+  color: $accent;
+  text-shadow: 0 0 50px $accent-glow;
+}
+}
+}
+
+
+
+
+
+
+// ─── Scrolling track ──────────────────────────────────────────────────────────
+.track {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0 4rem;
+}
+
+// ─── Card ─────────────────────────────────────────────────────────────────────
+.card {
+  position: relative;
+  min-width: 280px;
+  width: 280px;
+  background: $card-bg;
+  border: 1px solid $card-border;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: none;
+}
+
+// Corner accents
+.cornerTL,
+.cornerBR {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.cornerTL {
+  top: 9px;
+  left: 9px;
+  border-top: 1.5px solid $accent;
+  border-left: 1.5px solid $accent;
+}
+
+.cornerBR {
+  bottom: 9px;
+  right: 9px;
+  border-bottom: 1.5px solid $accent;
+  border-right: 1.5px solid $accent;
+}
+
+// ─── Image ────────────────────────────────────────────────────────────────────
+.imgWrap {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.imgInner {
+  position: absolute;
+  inset: 3;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.imgOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0) 0%, transparent 55%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+// ─── Card body ────────────────────────────────────────────────────────────────
+.cardBody {
+  padding: 14px 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.cardEra {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  color: $accent;
+  font-weight: 600;
+}
+
+.cardName {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: $white;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.cardRole {
+  font-size: 0.75rem;
+  color: $muted;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.cardCta {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: $accent;
+}
+
+// Bottom accent line (grows on hover)
+.cardLine {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: $accent;
+  box-shadow: 0 0 10px $accent-glow;
+  transform-origin: left;
+}
+
+// ─── Progress bar ─────────────────────────────────────────────────────────────
+.progressWrap {
+  position: absolute;
+  bottom: 28px;
+  left: 4rem;
+  right: 4rem;
+  height: 1px;
+  background: $card-border;
+}
+
+.progressBar {
+  height: 100%;
+  background: $accent;
+  box-shadow: 0 0 8px $accent-glow;
+}
+
+// ─── Scroll hint ──────────────────────────────────────────────────────────────
+.hint {
+  position: absolute;
+  bottom: 40px;
+  right: 4rem;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: $muted;
+  margin: 0;
+  pointer-events: none;
+}
+
+// ─── Responsive ───────────────────────────────────────────────────────────────
+@media (max-width: 768px) {
+  .header { padding: 0 1.5rem; }
+  .track  { padding: 0 1.5rem; gap: 1rem; }
+  .card   { min-width: 240px; width: 240px; }
+  .progressWrap { left: 1.5rem; right: 1.5rem; }
+  .hint   { right: 1.5rem; }
+}
