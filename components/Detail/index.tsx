@@ -626,7 +626,7 @@ const API_BASE = "https://ethio-heroes.onrender.com";
 
 const NAV_LINKS = [
   { label: "Home",      href: "/" },
-  { label: "Directory", href: "#" },
+  { label: "Directory", href: "/director" },
   { label: "Quotes",    href: "#" },
   { label: "About",     href: "#" },
   { label: "Contact",   href: "#" },
