@@ -80,7 +80,7 @@ export default function Index({ scrollYProgress }: Props) {
           <section className={styles.menuList}>
             <motion.ul style={{ scale: menuScale }}>
               <li><a href="#" className="flex items-center gap-1">Home <ArrowUpRight className="w-4 h-4" /></a></li>
-              <li><a href="#" className="flex items-center gap-1">Heroes <ArrowUpRight className="w-4 h-4" /></a></li>
+              <li><a href="/director" className="flex items-center gap-1">Heroes <ArrowUpRight className="w-4 h-4" /></a></li>
               <li><a href="#timeline" className="flex items-center gap-1">Timeline <ArrowUpRight className="w-4 h-4" /></a></li>
               <li><a href="#" className="flex items-center gap-1">Archive <ArrowUpRight className="w-4 h-4" /></a></li>
 
